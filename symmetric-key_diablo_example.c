@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 // symmetric - key encryption example.
-// key is 'diablo'
-//written by Mouzakitis Nikoloas,April 26 2016.
+// keyword  is 'diablo' - key -'a'. 
+//written by Mouzakitis Nikolaos,April 26 2016.
 
  void  encrypt(char *plaintext,int size)
  {
@@ -11,6 +11,8 @@
 	for(i = 0; i < size; i ++)
 	{	if(plaintext[i] =='a')
 			plaintext[i] = 'd';
+		else if(plaintext[i] == ' ')
+			plaintext[i] = ' ';
 		else if(plaintext[i] == 'b')
 			plaintext[i] = 'i';
 		else if(plaintext[i] == 'c')
@@ -60,7 +62,7 @@
 		else if(plaintext[i] == 'y')
 			plaintext[i] = 'y';
 		else if(plaintext[i] == 'z')
-			plaintext[i] = 'z';										
+			plaintext[i] = 'z';					
 	}
 
 
@@ -71,6 +73,8 @@ void decrypt(char *plaintext,int size)
 	for(i = 0; i < size; i ++)
 	{	if(plaintext[i] =='a')
 			plaintext[i] = 'c';
+		else if(plaintext[i] == ' ')
+			plaintext[i] = ' ';
 		else if(plaintext[i] == 'b')
 			plaintext[i] = 'd';
 		else if(plaintext[i] == 'c')
@@ -120,23 +124,21 @@ void decrypt(char *plaintext,int size)
 		else if(plaintext[i] == 'y')
 			plaintext[i] = 'y';
 		else if(plaintext[i] == 'z')
-			plaintext[i] = 'z';										
+			plaintext[i] = 'z';					
 	}
-
-
-
-
-
 
 }
 int main(void)
 {
 	int lenght= 1;
 	char e[1024];
-	strcpy(e,"securedmessage");
+	char import[1024]= "he was a great fighter";
+	int i = 0;
+
+	strcpy(e,import);
 	
 	lenght = strlen(e);
-	printf("We will use the key: 'diablo' \n");
+	printf("We will use the keyword: 'diablo' key-a \n");
 
 
 	printf("lenght of message is : %d\n",lenght);
