@@ -1,2 +1,2 @@
-Ciphers and encryption/decryption methods and functions by Mouzakitis Nikolaos.
+Ciphers and encryption/decryption methods and functions.
 Created while studying cryptography.
