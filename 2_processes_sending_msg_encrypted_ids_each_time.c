@@ -1,3 +1,4 @@
+/*  	gcc 2_processes_sending_msg_encrypted_ids_each_time.c -lpthread -lrt	*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
