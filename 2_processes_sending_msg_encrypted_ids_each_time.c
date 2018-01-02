@@ -20,12 +20,13 @@
 #define SHARED 1
 #define MON1 "/mon1"
 #define MON2 "/mon2"
+
 #define COMPLETE "/cmp"
 #define RUN "/run"
 
 int m1,m2,c;
 int fd[2];	// pipe
-int counter1,counter2;	// counts messages coming from id1 and id2.
+
 int valid_ids1[10] = {3,5,7,9,11,13,15,17,19,1};
 int valid_ids2[10] = {4,6,8,10,12,14,16,18,0,2};
 
@@ -36,7 +37,8 @@ int *run_state;
 void monitor2(int sig)
 {
 	int received_id;
-	char buffer[BUF_SIZE];
+		char buffer[BUF_SIZE];
+	static int counter2 = 0;
 	memset(buffer,0,BUF_SIZE);
 
 	printf("-------------------\n");
@@ -63,7 +65,7 @@ void monitor1(int sig)
 	int received_id;
 	char buffer[BUF_SIZE];
 	memset(buffer,0,BUF_SIZE);
-
+	static int counter1 = 0;
 	printf("-------------------\n");
 	printf("Monitor1 runs\n");
 	
