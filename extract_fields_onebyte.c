@@ -1,4 +1,5 @@
-#include <__C.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 
 /* Hypothetical example 
