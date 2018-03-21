@@ -11,7 +11,7 @@
 int main(int argc,char *argv[])
 {
 	char ch, data, id, mac;
-	ch = 111;	// id: 1, data: 5, mac: 6
+	ch = 111;	// id: 1, data: 5, mac: 7
 	char fid = 192;
 	char fdata = 56;
 	char fmac = 7;
