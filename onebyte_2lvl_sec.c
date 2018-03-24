@@ -13,16 +13,17 @@
 	|ID-2bits| DATA-2bits| MAC-4bits|
 	 --------------------------------
 	
-
 	Program to extract the fields from the message
 	and a demostration of switch between two different
 	security levels of interpetation of same message.
-
-
-	Usage:	 
-		
-		
-
+	
+	Usage:	
+		For level1 security
+		setSecurity(1);	
+		readMsg(&payload, &id,&data, &mac);
+		For level2 security 
+		setSecurity(2);	
+		readMsg(&payload, &id,&data, &mac);
 */
 
 /*	Globals	*/
