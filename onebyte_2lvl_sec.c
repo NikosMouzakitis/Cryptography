@@ -17,6 +17,12 @@
 	Program to extract the fields from the message
 	and a demostration of switch between two different
 	security levels of interpetation of same message.
+
+
+	Usage:	 
+		
+		
+
 */
 
 /*	Globals	*/
@@ -31,8 +37,6 @@ int data_max = 5;
 char fid ;	/* Masks for id, data and Mac	*/
 char fdata; 
 char fmac ;
-
-
 
 //	@filter.
 // calulation of an integer that
@@ -87,7 +91,6 @@ void setSecurity(int level) {
 	fdata = filter(data_min, data_max);
 	fmac = filter(mac_min, mac_max);
 
-
 }
 
 //	@ext_field
@@ -103,25 +106,28 @@ int ext_field(char *val, char *mask, int shift) {
 	return ret;
 }
 
+void readMsg(char *payload, char * id, char *data, char *mac) {
+
+
+	*id = ext_field(payload, &fid, id_min);
+	*data = ext_field(payload, &fdata, data_min);
+	*mac = ext_field(payload, &fmac, mac_min);
+
+}
+
 int main(int argc,char *argv[])
 {
 	char payload, data, id, mac;
 	payload = 110;	// id: 1, data: 5, mac: 6
 	
 	setSecurity(1);	
-	
-	id = ext_field(&payload, &fid, id_min);
-	data = ext_field(&payload, &fdata, data_min);
-	mac = ext_field(&payload, &fmac, mac_min);
+	readMsg(&payload, &id,&data, &mac);
 
 	printf("ID: %d Data: %d MAC: %d\n", id, data, mac);	
 	
 	setSecurity(2);
-
-	id = ext_field(&payload, &fid, id_min);
-	data = ext_field(&payload, &fdata, data_min);
-	mac = ext_field(&payload, &fmac, mac_min);
-
+	readMsg(&payload, &id,&data, &mac);
+	
 	printf("ID: %d Data: %d MAC: %d\n", id, data, mac);	
 
 	return 0;
