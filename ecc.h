@@ -41,7 +41,7 @@ int inv(int in, int p)
 		Returns the integer solutions of equation in form
 		y^2 = x^3+ax + b.
 		Returns NOTD if not defined by D = -16(4a^3+27b^2) == 0,
-		-1 if any other error occurs, and returns the number of 
+		-1 if there are no integer solutions found, and returns the number of 
 		solutions as (x,y) written in the matrix p.
 ARGUMENTS:
 		a,b:	constants of the equation.
